@@ -40,13 +40,13 @@ public final class ReceiverHelper {
         List receivers = (List) RefInvoke.getFieldObject(packageObj, "receivers");
 
         for (Object receiver : receivers) {
-            registerDynalmicReceiver(context, receiver);
+            registerDynamicReceiver(context, receiver);
         }
     }
 
     // 解析出 receiver以及对应的 intentFilter
     // 手动注册Receiver
-    public static void registerDynalmicReceiver(Context context, Object receiver) {
+    public static void registerDynamicReceiver(Context context, Object receiver) {
         //取出receiver的intents字段
         List<? extends IntentFilter> filters = (List<? extends IntentFilter>) RefInvoke.getFieldObject(
                 "android.content.pm.PackageParser$Component", receiver, "intents");
